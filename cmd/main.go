@@ -1,8 +1,11 @@
 package main
 
 import (
+	"log/slog"
+	"os"
+
 	"github.com/taufiqkba/food_app_v2/internal/config"
-	"github.com/taufiqkba/food_app_v2/internal/infra/database"
+	"github.com/taufiqkba/food_app_v2/internal/server"
 )
 
 func main() {
@@ -12,12 +15,15 @@ func main() {
 		panic(err)
 	}
 
-	cfg := config.GetConfig()
+	logHandler := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
+		Level:     slog.LevelDebug,
+		AddSource: true,
+	})
 
-	db, err := database.ConnectPostgres(cfg.DB)
-	if err != nil {
+	log := slog.New(logHandler)
+	slog.SetDefault(log)
+
+	if err := server.Start(); err != nil {
 		panic(err)
 	}
-	_ = db
-	// fmt.Printf("%+v\n", cfg)
 }
