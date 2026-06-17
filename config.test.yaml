@@ -8,6 +8,10 @@ db:
   username: "root"
   password: "root"
   name: "nb_food_app"
-  schema: "nb_food_app"
-  sslmode: "disabled"
+  sslmode: "disable"
+  max_idle_connection: 10
+  max_open_connection: 25
+  max_lifetime: 60
+  max_idle_time: 60
+
 

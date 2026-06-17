@@ -1,9 +1,8 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/taufiqkba/food_app_v2/internal/config"
+	"github.com/taufiqkba/food_app_v2/internal/infra/database"
 )
 
 func main() {
@@ -14,5 +13,11 @@ func main() {
 	}
 
 	cfg := config.GetConfig()
-	fmt.Printf("%+v\n", cfg)
+
+	db, err := database.ConnectPostgres(cfg.DB)
+	if err != nil {
+		panic(err)
+	}
+	_ = db
+	// fmt.Printf("%+v\n", cfg)
 }
