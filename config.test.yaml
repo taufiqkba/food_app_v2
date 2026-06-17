@@ -7,4 +7,7 @@ db:
   port: "5432"
   username: "root"
   password: "root"
-  name: "nbfood-pos"
+  name: "nb_food_app"
+  schema: "nb_food_app"
+  sslmode: "disabled"
+
