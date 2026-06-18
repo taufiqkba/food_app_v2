@@ -14,6 +14,11 @@ type Config struct {
 type AppConfig struct {
 	Name string `yaml:"name"`
 	Port string `yaml:"port"`
+
+	// for auth
+	SecretKey   string `yaml:"secret_key"`
+	ExpiredTime int    `yaml:"expired_time"`
+	TokenType   string `yaml:"token_type"`
 }
 
 type DBConfig struct {
