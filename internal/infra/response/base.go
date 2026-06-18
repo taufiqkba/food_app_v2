@@ -1,5 +1,9 @@
 package response
 
+import (
+	"fmt"
+)
+
 type Response struct {
 	HttpStatus     int    `json:"-"`
 	StatusCode     string `json:"status_code"`
@@ -21,7 +25,7 @@ func WithPayload(payload any) OptionResponse {
 
 func WithStatusCode(code string) OptionResponse {
 	return func(r *Response) *Response {
-		r.StatusCode = code
+		r.StatusCode = fmt.Sprintf("%v%v", r.HttpStatus, code)
 		return r
 	}
 }
