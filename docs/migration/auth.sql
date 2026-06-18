@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS auth (
-    id int 
-    public_id varchar
-    email varchar
-    password varchar
-    role varchar
-    is_active bool
-    created_at timestamp
-    updated_at timestamp
+    id SERIAL PRIMARY KEY, 
+    public_id TEXT NOT NULL,
+    email TEXT NOT NULL,
+    password TEXT NOT NULL,
+    role TEXT NOT NULL,
+    is_active boolean NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
 )
