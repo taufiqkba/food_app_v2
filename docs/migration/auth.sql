@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS auth (
     is_active boolean NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
-)
+);

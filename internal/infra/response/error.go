@@ -32,6 +32,10 @@ func NewErrorUnauthorized(msg string, err error, opts ...OptionResponse) Respons
 	return newError(http.StatusUnauthorized, msg, err, opts...)
 }
 
+func NewErrorConflict(msg string, err error, opts ...OptionResponse) Response {
+	return newError(http.StatusConflict, msg, err, opts...)
+}
+
 func NewErrorStatusUnprocessableEntity(msg string, err error, opts ...OptionResponse) Response {
 	return newError(http.StatusUnprocessableEntity, msg, err, opts...)
 }
